@@ -3,23 +3,18 @@ name = "kokoro-onnx"
 version = "0.5.0"
 description = "TTS with kokoro and onnx runtime"
 readme = "README.md"
-authors = [
-    { name = "thewh1teagle", email = "61390950+thewh1teagle@users.noreply.github.com" },
-]
 requires-python = ">=3.12,<3.15"
 dependencies = [
     "onnxruntime>=1.26.0",
     "espeakng-loader>=0.2.4",
     "phonemizer-fork>=3.3.2",
+    "segments>=2.4.0",
+    "csvw>=4.0.0",
+    "rdflib>=7.6.0",
     "cffi>=2.0.0",
     "lxml>=6.1.1",
     "numpy>=2.0.2",
 ]
-
-[project.urls]
-Homepage = "https://github.com/thewh1teagle/kokoro-onnx"
-Repository = "https://github.com/thewh1teagle/kokoro-onnx"
-Issues = "https://github.com/thewh1teagle/kokoro-onnx/issues"
 
 [project.optional-dependencies]
 gpu = [
@@ -32,14 +27,3 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = ["ruff>=0.11.0", "sounddevice>=0.5.1", "soundfile>=0.13.0"]
-
-[tool.ruff]
-required-version = ">=0.9.0"
-output-format = "concise"
-show-fixes = true
-
-[tool.ruff.lint]
-extend-select = ["I", "UP"]
-
-[tool.ruff.lint.isort]
-split-on-trailing-comma = false
