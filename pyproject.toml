@@ -4,11 +4,11 @@ version = "0.5.0"
 description = "TTS with kokoro and onnx runtime"
 readme = "README.md"
 authors = [
-    { name = "thewh1teagle" },
+    { name = "thewh1teagle", email = "61390950+thewh1teagle@users.noreply.github.com" },
 ]
 requires-python = ">=3.10,<3.15"
 dependencies = [
-    "onnxruntime>=1.20.1",
+    "onnxruntime>=1.24.4",
     "espeakng-loader>=0.2.4",
     "phonemizer-fork>=3.3.2",
     "numpy>=2.0.2",
@@ -19,9 +19,13 @@ Homepage = "https://github.com/thewh1teagle/kokoro-onnx"
 Repository = "https://github.com/thewh1teagle/kokoro-onnx"
 Issues = "https://github.com/thewh1teagle/kokoro-onnx/issues"
 
+
 [project.optional-dependencies]
+# Windows/Linux GPU feature
+# Install with kokoro-onnx[gpu]
 gpu = [
-    "onnxruntime-gpu>=1.20.1; platform_machine == 'x86_64' and sys_platform != 'darwin'",
+    # onnxruntime-gpu is not available on Linux ARM or macOS
+    "onnxruntime-gpu>=1.24.4; platform_machine == 'x86_64' and sys_platform != 'darwin'",
 ]
 
 [build-system]
