@@ -21,21 +21,21 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
-      - name: Install uv and Python 3.14
-        uses: astral-sh/setup-uv@v8
-        with:
-          python-version: "3.14"
-          enable-cache: true
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install Python 3.14
+        run: uv python install 3.14
 
       - name: Show tool versions
         run: |
           uv --version
-          uv run python --version
+          uv run --python 3.14 python --version
 
       - name: Sync package environment
-        run: uv sync --dev
+        run: uv sync --python 3.14 --dev
 
       - name: Build source and wheel distributions
         run: uv build
