@@ -1,0 +1,41 @@
+name: build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - pyproject.toml
+      - uv.lock
+      - kokoro_onnx/**
+      - .github/workflows/build.yml
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build package on Python 3.14
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install uv and Python 3.14
+        uses: astral-sh/setup-uv@v8
+        with:
+          python-version: "3.14"
+          enable-cache: true
+
+      - name: Show tool versions
+        run: |
+          uv --version
+          uv run python --version
+
+      - name: Sync package environment
+        run: uv sync --dev
+
+      - name: Build source and wheel distributions
+        run: uv build
