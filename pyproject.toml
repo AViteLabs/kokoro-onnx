@@ -11,6 +11,7 @@ dependencies = [
     "onnxruntime>=1.26.0",
     "espeakng-loader>=0.2.4",
     "phonemizer-fork>=3.3.2",
+    "cffi>=2.0.0",
     "lxml>=6.1.1",
     "numpy>=2.0.2",
 ]
@@ -20,12 +21,8 @@ Homepage = "https://github.com/thewh1teagle/kokoro-onnx"
 Repository = "https://github.com/thewh1teagle/kokoro-onnx"
 Issues = "https://github.com/thewh1teagle/kokoro-onnx/issues"
 
-
 [project.optional-dependencies]
-# Windows/Linux GPU feature
-# Install with kokoro-onnx[gpu]
 gpu = [
-    # onnxruntime-gpu is not available on Linux ARM or macOS
     "onnxruntime-gpu>=1.26.0; platform_machine == 'x86_64' and sys_platform != 'darwin'",
 ]
 
