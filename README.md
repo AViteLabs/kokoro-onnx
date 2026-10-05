@@ -13,6 +13,26 @@
 
 TTS with onnx runtime based on [Kokoro-TTS](https://huggingface.co/spaces/hexgrad/Kokoro-TTS)
 
+> [!NOTE]
+> **This is the AViteLabs fork**, tracking
+> [thewh1teagle/kokoro-onnx](https://github.com/thewh1teagle/kokoro-onnx)
+> with Python 3.14 support (`requires-python >=3.12,<3.15`, current dep
+> floors, `uv_build` backend). See [CHANGES.md](CHANGES.md) for the delta.
+>
+> **Using this together with `misaki[en]` (e.g. the `kokoro` torch
+> backend)?** `misaki` still requires `phonemizer-fork`, and both
+> `phonemizer` and `phonemizer-fork` install the same top-level
+> `phonemizer` module — they cannot coexist. With uv, prune the fork at
+> resolve time and let stock `phonemizer` provide the module (verified
+> API- and output-identical for misaki's usage):
+>
+> ```toml
+> [tool.uv]
+> exclude-dependencies = ["phonemizer-fork"]
+> ```
+>
+> Track https://github.com/hexgrad/misaki/issues/109 for the upstream fix.
+
 🚀 Version 1.0 models are out now! 🎉
 
 <https://github.com/user-attachments/assets/00ca06e8-bbbd-4e08-bfb7-23c0acb10ef9>

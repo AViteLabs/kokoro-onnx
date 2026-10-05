@@ -1,5 +1,16 @@
 # Changes
 
+## 0.7.1 (2026-10-05)
+
+- Switch `phonemizer-fork` to stock `phonemizer>=3.4.0`, matching upstream.
+  Stock 3.4.0 upstreamed the fork's `set_data_path` support and ships a
+  bounded backend cache; output is byte-identical for our usage. This
+  also drops the `segments`/`csvw`/`rdflib` pins and
+  `constraints-py314.txt`, which only existed for the fork's transitive
+  stack. Consumers that still pull `phonemizer-fork` via `misaki[en]`
+  must exclude it at resolve time — the two packages provide the same
+  `phonemizer` module.
+
 ## 0.7.0 (2026-10-05)
 
 - Merge upstream `thewh1teagle/kokoro-onnx` 0.6.1:
