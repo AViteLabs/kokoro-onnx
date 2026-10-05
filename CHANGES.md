@@ -1,5 +1,13 @@
 # Changes
 
+## 0.7.2 (2026-10-05)
+
+- Drop the `cffi` and `lxml` dependencies: nothing in the dependency tree
+  needs them. They were only direct pins to force Python 3.14-compatible
+  versions of the old `phonemizer-fork` transitive stack, which 0.7.1
+  removed. This also avoids constraining `lxml` for consumers that pin
+  older versions.
+
 ## 0.7.1 (2026-10-05)
 
 - Switch `phonemizer-fork` to stock `phonemizer>=3.4.0`, matching upstream.
