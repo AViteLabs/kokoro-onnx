@@ -8,9 +8,9 @@ Note:
     See https://developer.nvidia.com/cuda-12-1-0-download-archive and https://developer.nvidia.com/cudnn-9-1-0-download-archive
 
 Setup:
-    pip install -U kokoro-onnx[gpu] soudfile
-    wget https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
-    wget https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
+    pip install -U kokoro-onnx[gpu] soundfile
+    wget https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.onnx
+    wget https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.0.bin
 
 Run with Python:
     python examples/with_cuda.py

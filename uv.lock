@@ -190,7 +190,7 @@ wheels = [
 
 [[package]]
 name = "kokoro-onnx"
-version = "0.5.0"
+version = "0.6.1"
 source = { editable = "." }
 dependencies = [
     { name = "cffi" },
@@ -233,7 +233,7 @@ provides-extras = ["gpu"]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "ruff", specifier = ">=0.16.0" },
+    { name = "ruff", specifier = ">=0.16.3" },
     { name = "sounddevice", specifier = ">=0.5.6" },
     { name = "soundfile", specifier = ">=0.14.0" },
 ]
